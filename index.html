@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English Interactive Exercises</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--tx:#1b2a41;--pri:#1f6feb;--ok:#18a058;--bad:#d03050;--bd:#d6dde8}
+@media(prefers-color-scheme:dark){:root{--bg:#10151d;--card:#1a212c;--tx:#e6ebf2;--bd:#324053}}
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Tahoma,Arial,sans-serif;background:var(--bg);color:var(--tx)}
+header{background:var(--pri);color:#fff;padding:14px 18px;font-size:1.2rem;font-weight:700}
+main{max-width:820px;margin:18px auto;padding:0 14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px;margin-bottom:14px}
+button{background:var(--pri);color:#fff;border:0;border-radius:8px;padding:10px 18px;font-size:1rem;cursor:pointer;margin:4px 0}
+button.sec{background:transparent;color:var(--pri);border:1px solid var(--pri)}
+input,select,textarea{font-size:1rem;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx)}
+.en{direction:ltr;text-align:left;font-size:1.15rem;line-height:2.2}
+.bank{display:flex;flex-wrap:wrap;gap:8px;direction:ltr;margin-bottom:12px}
+.chip{border:1px solid var(--pri);border-radius:8px;padding:4px 12px;color:var(--pri);font-weight:600}
+.chip.used{opacity:.35;text-decoration:line-through}
+select.ok,input.ok{border-color:var(--ok);background:#18a05822}
+select.no,input.no{border-color:var(--bad);background:#d0305022}
+.tags{display:flex;flex-wrap:wrap;gap:8px;direction:ltr;margin-top:10px}
+.tag{padding:4px 12px;border-radius:999px;color:#fff}.tag.g{background:var(--ok)}.tag.r{background:#8a94a6}
+.q{direction:ltr;text-align:left;margin:14px 0}.q label{display:block;padding:4px 0;cursor:pointer}
+.res{font-weight:700;font-size:1.2rem;margin-top:10px}
+code{direction:ltr;display:block;background:#0002;padding:8px;border-radius:8px;word-break:break-all;margin:8px 0}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--bd);padding:6px;text-align:center}
+</style>
+<style>
+body{background:linear-gradient(160deg,#e8f1ff 0%,#fdf1ff 55%,#fff6e5 100%);min-height:100vh;position:relative;overflow-x:hidden}
+@media(prefers-color-scheme:dark){body{background:linear-gradient(160deg,#0f1830,#1b1233 60%,#241a12)}}
+.bg i{position:fixed;z-index:0;border-radius:50%;opacity:.25;pointer-events:none;animation:fl 9s ease-in-out infinite}
+.bg i:nth-child(1){width:180px;height:180px;background:#ff7eb6;top:12%;left:-50px}
+.bg i:nth-child(2){width:120px;height:120px;background:#ffd166;top:55%;right:-30px;animation-delay:2s}
+.bg i:nth-child(3){width:90px;height:90px;background:#4cc9f0;bottom:6%;left:12%;animation-delay:4s}
+.bg i:nth-child(4){width:70px;height:70px;background:#7bd88f;top:30%;right:12%;border-radius:18px;animation-delay:1s}
+@keyframes fl{50%{transform:translateY(-22px) rotate(12deg)}}
+header{background:linear-gradient(120deg,#1f6feb,#7b4bff 60%,#ff5fa2);padding:0;position:relative;z-index:1;overflow:hidden}
+.hero{max-width:820px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;gap:10px}
+.hero h1{margin:0;font-size:1.35rem;line-height:1.5}.hero small{display:block;font-weight:400;opacity:.9;direction:ltr;text-align:right}
+.hero svg{width:150px;height:110px;flex:none}
+main{position:relative;z-index:1}
+.card{border:0;border-radius:18px;box-shadow:0 6px 20px #1b2a4122;transition:transform .2s}
+.card:hover{transform:translateY(-2px)}
+button{background:linear-gradient(120deg,#1f6feb,#7b4bff);box-shadow:0 3px 8px #1f6feb55;border-radius:999px;padding:10px 22px}
+button.sec{background:transparent;box-shadow:none}
+.ex{display:flex;align-items:center;gap:14px;border-right:8px solid var(--c)}
+.ex .ic{width:64px;height:64px;border-radius:18px;background:var(--c);display:grid;place-items:center;font-size:2rem;flex:none;box-shadow:0 4px 10px #0003}
+.ex b{font-size:1.05rem}
+.badge{display:inline-block;background:#18a05822;color:var(--ok);border-radius:999px;padding:2px 12px;font-size:.9rem}
+.big{font-size:4rem;text-align:center;letter-spacing:8px}
+.chip{color:#fff;border:0;box-shadow:0 2px 6px #0003}
+.chip:nth-child(7n+1){background:#1f6feb}.chip:nth-child(7n+2){background:#ff7a59}.chip:nth-child(7n+3){background:#18a058}
+.chip:nth-child(7n+4){background:#a855f7}.chip:nth-child(7n+5){background:#e5a100}.chip:nth-child(7n+6){background:#ec4899}.chip:nth-child(7n){background:#0ea5b7}
+.tag{font-weight:600;box-shadow:0 2px 6px #0003;animation:pop .25s}@keyframes pop{from{transform:scale(.4)}}
+.topic{height:84px;border-radius:14px;margin:-4px 0 12px;display:flex;align-items:center;justify-content:center;gap:14px;font-size:2.2rem;background:linear-gradient(120deg,var(--c1),var(--c2))}
+.confetti{font-size:2.4rem;text-align:center}
+</style>
+</head>
+<body>
+<div class="bg"><i></i><i></i><i></i><i></i></div>
+<header><div class="hero"><h1>📘 تمارين اللغة الإنجليزية التفاعلية<small>Internet &amp; Technology</small></h1>
+<svg viewBox="0 0 150 110" aria-hidden="true">
+<circle cx="52" cy="58" r="40" fill="#4cc9f0"/><ellipse cx="52" cy="58" rx="16" ry="40" fill="none" stroke="#fff" stroke-width="3"/>
+<path d="M12 58h80M20 36h64M20 80h64" stroke="#fff" stroke-width="3" fill="none"/>
+<rect x="88" y="22" width="40" height="72" rx="8" fill="#fff"/><rect x="93" y="30" width="30" height="50" rx="3" fill="#ffd166"/>
+<circle cx="108" cy="87" r="3" fill="#7b4bff"/>
+<path d="M99 52a12 12 0 0 1 18 0M96 45a18 18 0 0 1 24 0M108 60v.1" stroke="#ff5fa2" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M30 14c0-8 14-8 14 0 0 7-7 13-7 20 0-7-7-13-7-20z" fill="#ff5fa2"/><circle cx="37" cy="12" r="3" fill="#fff"/>
+<rect x="104" y="4" width="36" height="22" rx="10" fill="#7bd88f"/><path d="M114 26l-2 8 9-8z" fill="#7bd88f"/>
+<circle cx="115" cy="15" r="2.5" fill="#fff"/><circle cx="122" cy="15" r="2.5" fill="#fff"/><circle cx="129" cy="15" r="2.5" fill="#fff"/>
+</svg></div></header>
+<main id="app"></main>
+<script>
+/* ============ أضف تمارينك الجديدة هنا ============
+ type: "brainstorm" | "fill" | "mcq"
+ - brainstorm: words = الكلمات المقبولة، target = عدد الكلمات المطلوب للدرجة الكاملة
+ - fill: text فيها {1} {2}... ، bank = كلمات الصندوق، answers = الإجابات بالترتيب
+ - mcq: items = [{q, o:[...], a:رقم الإجابة الصحيحة يبدأ من 0}]
+*/
+const EXERCISES=[
+{id:"ex1",title:"1) What can the internet be used for?",type:"brainstorm",
+ prompt:"What can the internet be used for? Write as many words as you can think of.",
+ target:8,
+ words:["communicate","social media","reading","watching","discussing","location","games","gaming","shopping","learning","studying","searching","music","videos","news","email","chatting","maps","calling","travel","banking","downloading","working","listening"]},
+{id:"ex2",title:"2) Fill in the blanks",type:"fill",
+ bank:["internet","call","mobile","travel","maps","friends","location"],
+ text:"The {1} helps us get information. Most people have now {2} phones. I can {3} my family and {4} anytime. I can use google {5} when I {6}. Also, I can send my live {7} on what's up.",
+ answers:["internet","mobile","call","friends","maps","travel","location"]},
+{id:"ex3",title:"3) Choose the correct answer",type:"mcq",
+ items:[
+ {q:"We use the internet to ______ with friends.",o:["communicate","sleep","swim"],a:0},
+ {q:"Google Maps helps us find a ______.",o:["location","homework","phone"],a:0},
+ {q:"A phone you carry with you is a ______ phone.",o:["mobile","big","slow"],a:0},
+ {q:"Facebook and Instagram are ______.",o:["social media","maps","books"],a:0},
+ {q:"We can ______ videos on YouTube.",o:["watch","drink","eat"],a:0}]}
+];
+
+const THEME={brainstorm:["#ff7a59","💡"],fill:["#1f6feb","📱"],mcq:["#18a058","✅"]};
+const $=s=>document.querySelector(s), app=$("#app");
+let seat="";
+const store=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}};
+
+function login(){
+ seat=store("seat")||"";
+ app.innerHTML=`<div class="card"><div class="big">🌐📱💬</div><h2 style="text-align:center">أهلاً بك! 👋</h2>
+ <p>اكتب رقم الجلوس (9 أرقام):</p>
+ <input id="seat" inputmode="numeric" maxlength="9" placeholder="130511730" value="${seat}" style="direction:ltr">
+ <p id="err" style="color:var(--bad)"></p><button id="go">دخول</button>
+ <p><a href="#" id="t">لوحة المعلم</a></p></div>`;
+ $("#go").onclick=()=>{const v=$("#seat").value.trim();
+  if(!/^\d{9}$/.test(v)){$("#err").textContent="رقم الجلوس يجب أن يكون 9 أرقام";return}
+  seat=v;store("seat",v);menu()};
+ $("#t").onclick=e=>{e.preventDefault();teacher()};
+}
+
+function menu(){
+ const done=JSON.parse(store("done_"+seat)||"{}");
+ app.innerHTML=`<div class="card">رقم الجلوس: <b>${seat}</b> <button class="sec" id="out">خروج</button></div>`+
+ EXERCISES.map((e,i)=>{const th=THEME[e.type];return `<div class="card ex" style="--c:${th[0]}"><div class="ic">${th[1]}</div><div style="flex:1"><b style="direction:ltr;display:block;text-align:left">${e.title}</b>
+ ${done[e.id]?`<span class="badge">آخر نتيجة: ${done[e.id].s}/${done[e.id].m} ${done[e.id].s==done[e.id].m?"⭐":""}</span>`:""}</div>
+ <button data-id="${e.id}">ابدأ ▶</button></div>`}).join("");
+ $("#out").onclick=()=>{store("seat","");login()};
+ app.querySelectorAll("button[data-id]").forEach(b=>b.onclick=()=>run(EXERCISES.find(x=>x.id===b.dataset.id)));
+}
+
+function finish(e,s,m){
+ const done=JSON.parse(store("done_"+seat)||"{}");done[e.id]={s,m};store("done_"+seat,JSON.stringify(done));
+ const code=[seat,e.id,s,m,new Date().toISOString().slice(0,16)].join("|");
+ $("#res").innerHTML=`<div class="confetti">${s==m?"🎉🌟🎊":s>=m/2?"👏😊":"💪🙂"}</div>النتيجة: ${s} / ${m} ${s==m?"🌟":""}
+ <p style="font-weight:400;font-size:1rem">أرسل هذا الكود للمعلم:</p><code id="code">${code}</code>
+ <button class="sec" id="cp">نسخ الكود</button> <button id="back">القائمة</button>`;
+ $("#cp").onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(code);$("#cp").textContent="تم النسخ ✓"};
+ $("#back").onclick=menu;
+}
+
+function run(e){
+ let body="";
+ if(e.type==="brainstorm")body=`<p class="en">${e.prompt}</p>
+  <input id="w" placeholder="type a word" style="direction:ltr"> <button id="add">Add</button>
+  <div class="tags" id="tags"></div><p>الأخضر = كلمة صحيحة. المطلوب: ${e.target} كلمات.</p>`;
+ if(e.type==="fill"){
+  body=`<div class="bank">${e.bank.map(w=>`<span class="chip" data-w="${w}">${w}</span>`).join("")}</div><p class="en">`+
+  e.text.replace(/\{(\d+)\}/g,(_,n)=>`(${n}) <select data-n="${n-1}"><option value="">—</option>${e.bank.map(w=>`<option>${w}</option>`).join("")}</select>`)+"</p>";
+ }
+ if(e.type==="mcq")body=e.items.map((it,i)=>`<div class="q"><b>${i+1}. ${it.q}</b>`+
+  it.o.map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${o}</label>`).join("")+"</div>").join("");
+ app.innerHTML=`<div class="card"><div class="topic" style="--c1:${THEME[e.type][0]};--c2:#7b4bff">${{brainstorm:"🌍 💬 🎬 📚",fill:"📱 🗺️ ✈️ 👫",mcq:"🔎 📍 📺 👍"}[e.type]}</div><h3 style="direction:ltr;text-align:left">${e.title}</h3>${body}
+  <button id="chk">تحقق من الإجابات</button><div class="res" id="res"></div></div>`;
+
+ if(e.type==="brainstorm"){
+  const got=new Map();
+  const draw=()=>{$("#tags").innerHTML=[...got].map(([w,ok])=>`<span class="tag ${ok?"g":"r"}">${w}</span>`).join("")};
+  const add=()=>{const w=$("#w").value.trim().toLowerCase();if(w&&!got.has(w))got.set(w,e.words.includes(w));$("#w").value="";$("#w").focus();draw()};
+  $("#add").onclick=add;$("#w").onkeydown=ev=>{if(ev.key==="Enter")add()};
+  $("#chk").onclick=()=>{const n=[...got.values()].filter(Boolean).length;finish(e,Math.min(n,e.target),e.target)};
+ }
+ if(e.type==="fill"){
+  const sels=[...app.querySelectorAll("select")];
+  const upd=()=>{const used=sels.map(s=>s.value);app.querySelectorAll(".chip").forEach(c=>c.classList.toggle("used",used.includes(c.dataset.w)))};
+  sels.forEach(s=>s.onchange=upd);
+  $("#chk").onclick=()=>{let sc=0;sels.forEach((s,i)=>{const ok=s.value===e.answers[i];if(ok)sc++;s.className=ok?"ok":"no"});finish(e,sc,e.answers.length)};
+ }
+ if(e.type==="mcq"){
+  $("#chk").onclick=()=>{let sc=0;e.items.forEach((it,i)=>{
+   const c=app.querySelector(`input[name=q${i}]:checked`);const ok=c&&+c.value===it.a;if(ok)sc++;
+   app.querySelectorAll(`input[name=q${i}]`).forEach(r=>{r.parentElement.style.color=+r.value===it.a?"var(--ok)":(r.checked?"var(--bad)":"")})});
+   finish(e,sc,e.items.length)};
+ }
+}
+
+function teacher(){
+ app.innerHTML=`<div class="card"><h2>لوحة المعلم</h2>
+ <p>١) الصق قائمة الطلاب (رقم الجلوس [Tab] الاسم). تُحفظ في جهازك فقط ولا تُرفع إلى GitHub.</p>
+ <textarea id="ro" rows="5" style="width:100%;direction:ltr">${store("roster")||""}</textarea>
+ <p>٢) الصق الأكواد التي أرسلها الطلاب (كود في كل سطر):</p>
+ <textarea id="rs" rows="5" style="width:100%;direction:ltr"></textarea>
+ <button id="show">عرض الجدول</button> <button class="sec" id="back">رجوع</button><div id="tb"></div></div>`;
+ $("#back").onclick=login;
+ $("#show").onclick=()=>{
+  const ro=$("#ro").value;store("roster",ro);
+  const names={};ro.split("\n").forEach(l=>{const m=l.trim().match(/^(\d{9})\s+(.+)$/);if(m)names[m[1]]=m[2]});
+  const rows=$("#rs").value.split("\n").map(l=>l.trim().split("|")).filter(p=>p.length>=4)
+   .map(p=>`<tr><td>${p[0]}</td><td>${names[p[0]]||"⚠ غير موجود في القائمة"}</td><td>${p[1]}</td><td>${p[2]}/${p[3]}</td></tr>`);
+  $("#tb").innerHTML=`<table><tr><th>رقم الجلوس</th><th>الاسم</th><th>التمرين</th><th>الدرجة</th></tr>${rows.join("")}</table>`;
+ };
+}
+login();
+</script>
+</body>
+</html>
