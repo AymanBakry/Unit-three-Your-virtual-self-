@@ -74,10 +74,8 @@ button.sec{background:transparent;box-shadow:none}
 <main id="app"></main>
 <script>
 /* ============ أضف تمارينك الجديدة هنا ============
- type: "brainstorm" | "fill" | "mcq"
- - brainstorm: words = الكلمات المقبولة، target = عدد الكلمات المطلوب للدرجة الكاملة
- - fill: text فيها {1} {2}... ، bank = كلمات الصندوق، answers = الإجابات بالترتيب
- - mcq: items = [{q, o:[...], a:رقم الإجابة الصحيحة يبدأ من 0}]
+ كل تمرين: id, title, type:"mcq", icon, color, banner, items
+ items = [{q:"السؤال", o:["خيار1","خيار2","خيار3"], a:رقم الإجابة الصحيحة يبدأ من 0}]
 */
 const EXERCISES=[
 {id:"ex1",title:"1) Using the Internet",type:"mcq",icon:"🌐",color:"#1f6feb",banner:"🌍 💬 🎬 📚",
@@ -138,7 +136,7 @@ function login(){
 function menu(){
  const done=JSON.parse(store("done_"+seat)||"{}");
  app.innerHTML=`<div class="card">رقم الجلوس: <b>${seat}</b> <button class="sec" id="out">خروج</button></div>`+
- EXERCISES.map((e,i)=>{const th=THEME[e.type];return `<div class="card ex" style="--c:${th[0]}"><div class="ic">${th[1]}</div><div style="flex:1"><b style="direction:ltr;display:block;text-align:left">${e.title}</b>
+ EXERCISES.map((e,i)=>{const th=[e.color||THEME[e.type][0],e.icon||THEME[e.type][1]];return `<div class="card ex" style="--c:${th[0]}"><div class="ic">${th[1]}</div><div style="flex:1"><b style="direction:ltr;display:block;text-align:left">${e.title}</b>
  ${done[e.id]?`<span class="badge">آخر نتيجة: ${done[e.id].s}/${done[e.id].m} ${done[e.id].s==done[e.id].m?"⭐":""}</span>`:""}</div>
  <button data-id="${e.id}">ابدأ ▶</button></div>`}).join("");
  $("#out").onclick=()=>{store("seat","");login()};
@@ -166,7 +164,7 @@ function run(e){
  }
  if(e.type==="mcq")body=e.items.map((it,i)=>`<div class="q"><b>${i+1}. ${it.q}</b>`+
   it.o.map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${o}</label>`).join("")+"</div>").join("");
- app.innerHTML=`<div class="card"><div class="topic" style="--c1:${THEME[e.type][0]};--c2:#7b4bff">${{brainstorm:"🌍 💬 🎬 📚",fill:"📱 🗺️ ✈️ 👫",mcq:"🔎 📍 📺 👍"}[e.type]}</div><h3 style="direction:ltr;text-align:left">${e.title}</h3>${body}
+ app.innerHTML=`<div class="card"><div class="topic" style="--c1:${e.color||THEME[e.type][0]};--c2:#7b4bff">${e.banner||"🔎 📍 📺 👍"}</div><h3 style="direction:ltr;text-align:left">${e.title}</h3>${body}
   <button id="chk">تحقق من الإجابات</button><div class="res" id="res"></div></div>`;
 
  if(e.type==="brainstorm"){
