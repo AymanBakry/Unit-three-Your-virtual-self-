@@ -80,21 +80,41 @@ button.sec{background:transparent;box-shadow:none}
  - mcq: items = [{q, o:[...], a:رقم الإجابة الصحيحة يبدأ من 0}]
 */
 const EXERCISES=[
-{id:"ex1",title:"1) What can the internet be used for?",type:"brainstorm",
- prompt:"What can the internet be used for? Write as many words as you can think of.",
- target:8,
- words:["communicate","social media","reading","watching","discussing","location","games","gaming","shopping","learning","studying","searching","music","videos","news","email","chatting","maps","calling","travel","banking","downloading","working","listening"]},
-{id:"ex2",title:"2) Fill in the blanks",type:"fill",
- bank:["internet","call","mobile","travel","maps","friends","location"],
- text:"The {1} helps us get information. Most people have now {2} phones. I can {3} my family and {4} anytime. I can use google {5} when I {6}. Also, I can send my live {7} on what's up.",
- answers:["internet","mobile","call","friends","maps","travel","location"]},
-{id:"ex3",title:"3) Choose the correct answer",type:"mcq",
+{id:"ex1",title:"1) Using the Internet",type:"mcq",icon:"🌐",color:"#1f6feb",banner:"🌍 💬 🎬 📚",
  items:[
- {q:"We use the internet to ______ with friends.",o:["communicate","sleep","swim"],a:0},
- {q:"Google Maps helps us find a ______.",o:["location","homework","phone"],a:0},
- {q:"A phone you carry with you is a ______ phone.",o:["mobile","big","slow"],a:0},
- {q:"Facebook and Instagram are ______.",o:["social media","maps","books"],a:0},
- {q:"We can ______ videos on YouTube.",o:["watch","drink","eat"],a:0}]}
+ {q:"We use the internet to ______ information.",o:["sleep","find","paint"],a:1},
+ {q:"I can ______ videos on the internet.",o:["watch","wash","wear"],a:0},
+ {q:"I can ______ with my friends online.",o:["jump","cook","chat"],a:2},
+ {q:"The internet helps us ______.",o:["cry","learn","hide"],a:1},
+ {q:"We can play ______ online.",o:["soup","shoes","games"],a:2}]},
+{id:"ex2",title:"2) Mobile Phones",type:"mcq",icon:"📱",color:"#ff7a59",banner:"📱 📞 💬 📸",
+ items:[
+ {q:"A ______ phone is a phone you carry with you.",o:["heavy","mobile","wooden"],a:1},
+ {q:"I can ______ my family.",o:["eat","draw","call"],a:2},
+ {q:"I can send a ______ message.",o:["text","tree","table"],a:0},
+ {q:"I take ______ with my phone.",o:["rooms","photos","apples"],a:1},
+ {q:"My phone needs a ______ to work.",o:["pencil","cup","battery"],a:2}]},
+{id:"ex3",title:"3) Maps and Travel",type:"mcq",icon:"🗺️",color:"#18a058",banner:"🗺️ 📍 ✈️ 🚗",
+ items:[
+ {q:"Google Maps shows me the ______.",o:["homework","location","pillow"],a:1},
+ {q:"I use maps when I ______.",o:["travel","sleep","eat"],a:0},
+ {q:"A plane takes us to another ______.",o:["chair","book","country"],a:2},
+ {q:"Maps help us find the right ______.",o:["song","road","cup"],a:1},
+ {q:"I can send my live ______ to my friends.",o:["breakfast","location","shoes"],a:1}]},
+{id:"ex4",title:"4) Social Media",type:"mcq",icon:"💬",color:"#a855f7",banner:"👍 💬 📷 ❤️",
+ items:[
+ {q:"Instagram is ______.",o:["a fruit","a car","social media"],a:2},
+ {q:"I can ______ a picture of my friend.",o:["like","drink","wear"],a:0},
+ {q:"I can ______ a comment under a post.",o:["swim","write","bake"],a:1},
+ {q:"My friends and I ______ about games online.",o:["sleep","fly","talk"],a:2},
+ {q:"I should be ______ online.",o:["kind","rude","angry"],a:0}]},
+{id:"ex5",title:"5) Be Safe Online",type:"mcq",icon:"🛡️",color:"#e5a100",banner:"🔒 🛡️ 👍 ⚠️",
+ items:[
+ {q:"Do not share your ______ with strangers.",o:["pencil","password","bag"],a:1},
+ {q:"If something online scares you, tell a ______.",o:["stranger","parent","robot"],a:1},
+ {q:"A good password is ______.",o:["shared","secret","public"],a:1},
+ {q:"We should ______ our time on the internet.",o:["lose","hide","limit"],a:2},
+ {q:"Be ______ to others online.",o:["rude","kind","mean"],a:1}]}
 ];
 
 const THEME={brainstorm:["#ff7a59","💡"],fill:["#1f6feb","📱"],mcq:["#18a058","✅"]};
